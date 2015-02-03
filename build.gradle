@@ -1,0 +1,26 @@
+apply plugin: 'scala'
+apply plugin: 'idea'
+
+repositories {
+  mavenCentral()
+  maven { 
+    url "http://repo.akka.io/snapshots/"
+  }
+}
+
+def scalaRootV  = "2.11"
+def scalaV      = "2.11.5"
+def akkaV       = "2.3.9"
+def akkaStreamV = "1.0-M2"
+def scalaTestV  = "2.2.1"
+
+dependencies {
+  compile "org.scala-lang:scala-library:$scalaV"
+  compile "com.typesafe.akka:akka-actor_$scalaRootV:$akkaV"
+  compile "com.typesafe.akka:akka-stream-experimental_$scalaRootV:$akkaStreamV"
+  compile "com.typesafe.akka:akka-http-core-experimental_$scalaRootV:$akkaStreamV"
+  compile "com.typesafe.akka:akka-http-experimental_$scalaRootV:$akkaStreamV"
+  compile "com.typesafe.akka:akka-http-spray-json-experimental_$scalaRootV:$akkaStreamV"
+  compile "com.typesafe.akka:akka-http-testkit-experimental_$scalaRootV:$akkaStreamV"
+  testCompile "org.scalatest:scalatest_$scalaRootV:${scalaTestV}test"
+}
